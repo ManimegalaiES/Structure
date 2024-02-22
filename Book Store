@@ -1,0 +1,40 @@
+/*Create a structure named book to store book details like title , author and price. Write a c program to input details for 3 books. Find thE most expensive and lowest price books and display their information.*/
+
+#include <stdio.h>
+#include<string.h>
+struct book{
+     char title[100];
+     char author[100];
+     float price;
+}b[3];
+
+int main(void) {
+  for(int i=0;i<3;i++){
+    printf("Enter the title of the book%d:\n",i+1);
+    scanf("%s",b[i].title);
+    printf("Enter the author of the book%d:\n",i+1);
+    scanf("%s",b[i].author);
+    printf("Enter the price of the book%d:\n",i+1);
+    scanf("%f",&b[i].price);
+  }
+  int ExpensivePriceIndex=0;
+  int lowestPriceIndex=0;
+  for(int i=0;i<3;i++){
+    if(b[i].price>b[ExpensivePriceIndex].price){
+      ExpensivePriceIndex=i;
+    }
+    if(b[i].price<b[lowestPriceIndex].price){
+      lowestPriceIndex=i;
+    }
+  }
+    printf("The most expensive book:\n");
+    printf("Title:%s\n",b[ExpensivePriceIndex].title);
+    printf("Author:%s\n",b[ExpensivePriceIndex].author);  
+    printf("Price:%.2f\n",b[ExpensivePriceIndex].price);
+    
+    printf("The most lowest price book:\n");
+    printf("Title:%s\n",b[lowestPriceIndex].title);
+    printf("Author:%s\n",b[lowestPriceIndex].author);  
+    printf("Price:%.2f\n",b[lowestPriceIndex].price);
+  return 0;
+}
