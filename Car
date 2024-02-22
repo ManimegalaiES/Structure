@@ -1,0 +1,33 @@
+/*Design a structure named car to store details like car id, model and rental rate per day.Write a c program to input data for 3 cars. Calculate the total rental cost for a specified number of days and display the result.*/
+
+
+#include <stdio.h>
+struct Car {
+    int carId;
+    char model[100];
+    float rentalRatePerDay;
+}c[3];
+
+int main() {
+    for (int i = 0; i < 3; i++) {
+        printf("Enter details for car %d:\n", i + 1);
+        printf("Car ID: ");
+        scanf("%d", &c[i].carId);
+
+        printf("Model: ");
+        scanf("%s", c[i].model);
+
+        printf("Rental rate per day: ");
+        scanf("%f", &c[i].rentalRatePerDay);
+    }
+    int numDays;
+    printf("\nEnter the number of days for rental: ");
+    scanf("%d", &numDays);
+    float totalRentalCost = 0;
+    for (int i = 0; i < 3; i++) {
+        totalRentalCost += c[i].rentalRatePerDay * numDays;
+    }
+    printf("\nTotal rental cost for %d days: $%.2f\n", numDays, totalRentalCost);
+
+    return 0;
+}
